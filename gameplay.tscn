@@ -1,0 +1,85 @@
+[gd_scene format=3 uid="uid://b5ohddlhrriqj"]
+
+[ext_resource type="Script" uid="uid://3xte83fla4k7" path="res://script/circle.gd" id="1_n4psk"]
+[ext_resource type="PackedScene" uid="uid://dq8tdmlqp2h15" path="res://ripple.tscn" id="2_ej4tk"]
+[ext_resource type="Script" uid="uid://cb2s5eo45vyhj" path="res://script/ladder_board.gd" id="3_oe8ih"]
+[ext_resource type="Theme" uid="uid://cadcsrqf66x6v" path="res://assert/ui_base.tres" id="3_xuee5"]
+
+[sub_resource type="Environment" id="Environment_n4psk"]
+background_mode = 3
+glow_enabled = true
+glow_levels/2 = 1.0
+glow_intensity = 0.1
+glow_strength = 0.82
+glow_bloom = 0.5
+glow_blend_mode = 0
+
+[node name="Gameplay" type="Control" unique_id=2067771726]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1674730267]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1680360322]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 500
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 40
+
+[node name="ColorRect" type="ColorRect" parent="MarginContainer" unique_id=990691051]
+layout_mode = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Bubble" type="Node2D" parent="." unique_id=1542952851]
+
+[node name="Circle" type="Node2D" parent="Bubble" unique_id=1900512157]
+script = ExtResource("1_n4psk")
+radius = 100.0
+play_area = NodePath("../../MarginContainer/ColorRect")
+effects_node = NodePath("../Effects")
+ripple_scene = ExtResource("2_ej4tk")
+
+[node name="Effects" type="Node2D" parent="Bubble" unique_id=1459148826]
+position = Vector2(-500, -500)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=2130143509]
+environment = SubResource("Environment_n4psk")
+
+[node name="MarginContainer2" type="MarginContainer" parent="." unique_id=215252815]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 50
+
+[node name="LadderBoard" type="VBoxContainer" parent="MarginContainer2" unique_id=2021276518]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme = ExtResource("3_xuee5")
+script = ExtResource("3_oe8ih")
