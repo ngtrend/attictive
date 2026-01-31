@@ -1,6 +1,8 @@
 [gd_scene format=3 uid="uid://b5ohddlhrriqj"]
 
 [ext_resource type="Script" uid="uid://3xte83fla4k7" path="res://script/circle.gd" id="1_n4psk"]
+[ext_resource type="Script" uid="uid://bvkt4o7gduab6" path="res://script/gameplay.gd" id="1_smepj"]
+[ext_resource type="PackedScene" uid="uid://xwe1rxtelv41" path="res://name_popup.tscn" id="2_cbffv"]
 [ext_resource type="PackedScene" uid="uid://dq8tdmlqp2h15" path="res://ripple.tscn" id="2_ej4tk"]
 [ext_resource type="Script" uid="uid://cb2s5eo45vyhj" path="res://script/ladder_board.gd" id="3_oe8ih"]
 [ext_resource type="Theme" uid="uid://cadcsrqf66x6v" path="res://assert/ui_base.tres" id="3_xuee5"]
@@ -22,6 +24,8 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
+script = ExtResource("1_smepj")
+name_scene = ExtResource("2_cbffv")
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=1674730267]
 layout_mode = 1
@@ -76,10 +80,32 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/margin_left = 20
 theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 50
 
-[node name="LadderBoard" type="VBoxContainer" parent="MarginContainer2" unique_id=2021276518]
+[node name="TopHbox" type="HBoxContainer" parent="MarginContainer2" unique_id=1038364136]
+layout_mode = 2
+size_flags_vertical = 0
+
+[node name="LadderBoard" type="VBoxContainer" parent="MarginContainer2/TopHbox" unique_id=2021276518]
+custom_minimum_size = Vector2(0, 200)
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
 theme = ExtResource("3_xuee5")
 script = ExtResource("3_oe8ih")
+
+[node name="MarginContainer3" type="MarginContainer" parent="." unique_id=1955864508]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -48.0
+offset_bottom = 40.0
+grow_horizontal = 0
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 100
+
+[node name="ScoreLabel" type="Label" parent="MarginContainer3" unique_id=1684866537]
+layout_mode = 2
+theme = ExtResource("3_xuee5")
+text = "Score:"
