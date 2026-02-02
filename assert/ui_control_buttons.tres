@@ -1,0 +1,13 @@
+[gd_resource type="Theme" format=3 uid="uid://d2rf1u254572j"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ixy46"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 50
+corner_radius_top_right = 50
+corner_radius_bottom_right = 50
+corner_radius_bottom_left = 50
+
+[resource]
+Button/colors/icon_normal_color = Color(0, 0, 0, 1)
+Button/constants/icon_max_width = 55
+Button/styles/normal = SubResource("StyleBoxFlat_ixy46")

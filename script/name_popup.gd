@@ -6,7 +6,6 @@ extends Control
 func _ready() -> void:
 	get_tree().paused = true
 	process_mode = ProcessMode.PROCESS_MODE_ALWAYS
-	
 	submit_button.pressed.connect(_on_submit)
 func _on_submit():
 	var player_name = user_name.text.strip_edges()

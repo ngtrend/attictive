@@ -1,5 +1,11 @@
 [gd_resource type="Theme" format=3 uid="uid://cadcsrqf66x6v"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wtq8p"]
+bg_color = Color(1, 1, 1, 1)
+
 [resource]
+Button/colors/font_color = Color(0, 0, 0, 1)
+Button/font_sizes/font_size = 64
+Button/styles/normal = SubResource("StyleBoxFlat_wtq8p")
 Label/colors/font_color = Color(1, 1, 0.87034494, 1)
 Label/font_sizes/font_size = 64

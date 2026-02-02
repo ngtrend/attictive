@@ -1,0 +1,117 @@
+[gd_scene format=3 uid="uid://cs4btmtb1fyae"]
+
+[ext_resource type="Script" uid="uid://wigx3xk6xccr" path="res://script/main.gd" id="1_0xm2m"]
+[ext_resource type="Script" uid="uid://cxajlar7ijjwd" path="res://script/main_circle.gd" id="2_1bvp3"]
+[ext_resource type="Theme" uid="uid://cadcsrqf66x6v" path="res://assert/ui_base.tres" id="2_h2yge"]
+[ext_resource type="Texture2D" uid="uid://rkq7qq4e4ajl" path="res://assert/icon/settings.png" id="2_lquwl"]
+[ext_resource type="PackedScene" uid="uid://b5ohddlhrriqj" path="res://gameplay.tscn" id="4_1bvp3"]
+[ext_resource type="Texture2D" uid="uid://bqa5lrg6de1ma" path="res://assert/icon/music-on.png" id="6_5vw27"]
+[ext_resource type="Theme" uid="uid://d2rf1u254572j" path="res://assert/ui_control_buttons.tres" id="6_kek77"]
+[ext_resource type="Texture2D" uid="uid://ws73uais0258" path="res://assert/icon/sfx-on.png" id="7_kek77"]
+[ext_resource type="Texture2D" uid="uid://uj78frq6lhht" path="res://assert/icon/star.png" id="8_4c57u"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_efxa6"]
+bg_color = Color(0, 0, 0, 0)
+
+[node name="Main" type="Control" unique_id=332869437]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_0xm2m")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1125886328]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="MenuUi" type="CenterContainer" parent="." unique_id=2112470354]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MenuUi" unique_id=1365336637]
+layout_mode = 2
+
+[node name="Circle" type="Control" parent="MenuUi/VBoxContainer" unique_id=692052387]
+layout_mode = 2
+script = ExtResource("2_1bvp3")
+
+[node name="PlayButton" type="Button" parent="MenuUi/VBoxContainer" unique_id=1294199350]
+custom_minimum_size = Vector2(250, 100)
+layout_mode = 2
+theme = ExtResource("2_h2yge")
+text = "PLAY"
+
+[node name="Gameplay" parent="." unique_id=2067771726 instance=ExtResource("4_1bvp3")]
+visible = false
+layout_mode = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1614360673]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -135.0
+offset_bottom = 135.0
+grow_horizontal = 0
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 50
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=341804314]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="SettingsButton" type="TextureButton" parent="MarginContainer/VBoxContainer" unique_id=1076377240]
+layout_mode = 2
+texture_normal = ExtResource("2_lquwl")
+texture_pressed = ExtResource("2_lquwl")
+texture_hover = ExtResource("2_lquwl")
+
+[node name="SettingsPanel" type="Panel" parent="MarginContainer/VBoxContainer" unique_id=1932950742]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_efxa6")
+
+[node name="Controls" type="VBoxContainer" parent="MarginContainer/VBoxContainer/SettingsPanel" unique_id=641236981]
+layout_mode = 0
+offset_right = 93.0
+offset_bottom = 309.0
+theme_override_constants/separation = 20
+alignment = 1
+
+[node name="MusicButton" type="Button" parent="MarginContainer/VBoxContainer/SettingsPanel/Controls" unique_id=422716294]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("6_kek77")
+icon = ExtResource("6_5vw27")
+icon_alignment = 1
+
+[node name="SfxButton" type="Button" parent="MarginContainer/VBoxContainer/SettingsPanel/Controls" unique_id=1319275068]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("6_kek77")
+icon = ExtResource("7_kek77")
+icon_alignment = 1
+
+[node name="EditButton" type="Button" parent="MarginContainer/VBoxContainer/SettingsPanel/Controls" unique_id=796270489]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("6_kek77")
+icon = ExtResource("8_4c57u")
+icon_alignment = 1
