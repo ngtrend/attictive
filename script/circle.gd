@@ -15,7 +15,7 @@ const CIRCLE_COLORS = {
 const COLOR_POOL = ["white", "white","white","white", "red"]
 var popped := false
 
-var radius := GamePlay.circle_raduis
+var radius := Gamedata.circle_raduis
 var circle_type := "white"
 var first_circle := true
 
@@ -25,14 +25,12 @@ func _draw() -> void:
 	draw_circle(Vector2.ZERO, radius, circle_color)
 
 func _ready() -> void:
-	print("Circle entred")
 	randomize()
 	assign_random_color()
-	GamePlay.register_circle(self)
-	
+	Gamedata.register_circle(self)
 	await get_tree().create_timer(0.1).timeout
 	if first_circle:
-		global_position = GamePlay.first_circle_position
+		global_position = Gamedata.first_circle_position
 		first_circle = false
 	else:
 		global_position = get_random_position()
@@ -40,7 +38,7 @@ func _ready() -> void:
 
 func assign_random_color() -> void:
 	var selected_circle_type = COLOR_POOL[randi() % COLOR_POOL.size()]
-	circle_type = selected_circle_type if GamePlay.score > red_spawn_threshold else "white"
+	circle_type = selected_circle_type if Gamedata.score > red_spawn_threshold else "white"
 	circle_color = CIRCLE_COLORS[circle_type]
 func _unhandled_input(event: InputEvent) -> void:
 	if popped:

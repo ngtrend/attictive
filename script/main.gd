@@ -1,9 +1,13 @@
 extends Control
+
 @onready var play_button: Button = $MenuUi/VBoxContainer/PlayButton
-@onready var gameplay: Control = $Gameplay
 @onready var menu_ui: CenterContainer = $MenuUi
 @onready var settings_button: TextureButton = $MarginContainer/VBoxContainer/SettingsButton
 @onready var settings_panel: Panel = $MarginContainer/VBoxContainer/SettingsPanel
+@onready var music_button: Button = $MarginContainer/VBoxContainer/SettingsPanel/Controls/MusicButton
+@onready var sfx_button: Button = $MarginContainer/VBoxContainer/SettingsPanel/Controls/SfxButton
+@onready var edit_button: Button = $MarginContainer/VBoxContainer/SettingsPanel/Controls/EditButton
+@onready var background_music: AudioStreamPlayer = $BackgroundMusic
 
 var settings_tween: Tween
 const SLIDE_OFFSET := 20
@@ -11,13 +15,13 @@ const SLIDE_OFFSET := 20
 func _ready() -> void:
 	play_button.pressed.connect(_on_play_button_pressed)
 	settings_button.pressed.connect(_on_settings_button_pressed)
-	await get_tree().process_frame
+	music_button.pressed.connect(_on_music_toggle)
+	edit_button.pressed.connect(_on_edit_button_toggle)
 	settings_panel.hide()
-	gameplay.hide()
+	await get_tree().process_frame
 func _on_play_button_pressed():
 	play_button.disabled = true
-	menu_ui.hide()
-	gameplay.show()
+	Gamedata.switch_scene("res://gameplay.tscn")
 func _on_settings_button_pressed():
 	if !settings_panel.visible:
 		show_settings()
@@ -73,3 +77,28 @@ func hide_settings():
 	settings_tween.finished.connect(func():
 		settings_panel.visible = false
 	)
+func _on_music_toggle():
+	if Gamedata.music_volume > 0:
+		Gamedata.music_volume = 0.0
+	else:
+		Gamedata.music_volume = 0.5
+	background_music.volume_db = linear_to_db(Gamedata.music_volume)
+	update_music_toggle()
+func _on_sfx_toggle():
+	if Gamedata.sfx_volume > 0:
+		Gamedata.sfx_volume = 0.0
+	else:
+		Gamedata.sfx_volume = 0.5
+	update_sfx_toggle()
+func update_music_toggle():
+	if Gamedata.music_volume > 0.0:
+		music_button.icon = preload("res://assert/icon/music-on.png")
+	else:
+		music_button.icon = preload("res://assert/icon/music-off.png")
+func update_sfx_toggle():
+	if Gamedata.sfx_volume > 0:
+		sfx_button.icon = preload("res://assert/icon/sfx-on.png")
+	else:
+		sfx_button.icon = preload("res://assert/icon/sfx-off.png")
+func _on_edit_button_toggle():
+	Gamedata.show_name_popup()

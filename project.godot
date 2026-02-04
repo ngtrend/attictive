@@ -15,7 +15,7 @@ compatibility/default_parent_skeleton_in_mesh_instance_3d=true
 [application]
 
 config/name="bubbleshot"
-run/main_scene="uid://cs4btmtb1fyae"
+run/main_scene="uid://dvdoyh6fuya0l"
 config/features=PackedStringArray("4.6", "Mobile")
 boot_splash/show_image=false
 boot_splash/stretch_mode=0
@@ -25,7 +25,7 @@ config/icon="res://icon.svg"
 [autoload]
 
 PlayFab="*res://script/playfab.gd"
-GamePlay="*res://gameplay.gd"
+Gamedata="*uid://bb5tdulh68g2e"
 
 [display]
 

@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://dvdoyh6fuya0l"]
+
+[ext_resource type="Script" uid="uid://bgogjs7w5ejmn" path="res://script/app.gd" id="1_j6dmo"]
+[ext_resource type="Script" uid="uid://prrnmsko6mkn" path="res://script/transition_layer.gd" id="2_qbwvd"]
+
+[node name="App" type="Node" unique_id=1812165587]
+script = ExtResource("1_j6dmo")
+
+[node name="SceneRoot" type="Node" parent="." unique_id=1320554946]
+
+[node name="TransitionLayer" type="CanvasLayer" parent="." unique_id=161910551]
+script = ExtResource("2_qbwvd")
+
+[node name="FadeRect" type="ColorRect" parent="TransitionLayer" unique_id=699890503]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0)
+
+[node name="UILayer" type="Node" parent="." unique_id=606052585]

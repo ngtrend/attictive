@@ -5,5 +5,5 @@ func _ready() -> void:
 func _draw() -> void:
 	var pos = size / 2
 	pos.y -= 150
-	draw_circle(pos , GamePlay.circle_raduis, Color.WHITE)
-	GamePlay.first_circle_position = global_position + pos
+	draw_circle(pos , Gamedata.circle_raduis, Color.WHITE)
+	Gamedata.first_circle_position = global_position + pos

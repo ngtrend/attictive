@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://xwe1rxtelv41"]
 
 [ext_resource type="Script" uid="uid://de7qwjdfdeaj" path="res://script/name_popup.gd" id="1_qk1dn"]
+[ext_resource type="Theme" uid="uid://cadcsrqf66x6v" path="res://assert/ui_base.tres" id="2_e2h7s"]
 
 [node name="NamePopup" type="Control" unique_id=1625352479]
 layout_mode = 3
@@ -18,29 +19,40 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.31711304, 0.31711304, 0.31711304, 0.83300006)
+color = Color(0, 0, 0, 0.919)
 
 [node name="CenterContainer" type="CenterContainer" parent="." unique_id=1240750330]
 layout_mode = 1
-anchors_preset = 14
-anchor_top = 0.5
+anchors_preset = 15
 anchor_right = 1.0
-anchor_bottom = 0.5
-offset_top = -33.0
-offset_bottom = 33.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer" unique_id=1605692439]
+[node name="Panel" type="Panel" parent="CenterContainer" unique_id=1961508052]
+custom_minimum_size = Vector2(500, 750)
 layout_mode = 2
-theme_override_constants/separation = 40
+theme = ExtResource("2_e2h7s")
 
-[node name="UserName" type="LineEdit" parent="CenterContainer/VBoxContainer" unique_id=510007815]
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/Panel" unique_id=1605692439]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 40
+alignment = 1
+
+[node name="UserName" type="LineEdit" parent="CenterContainer/Panel/VBoxContainer" unique_id=510007815]
 custom_minimum_size = Vector2(500, 50)
 layout_mode = 2
+theme = ExtResource("2_e2h7s")
 theme_override_font_sizes/font_size = 64
+placeholder_text = "user name"
+alignment = 1
 
-[node name="SubmitButton" type="Button" parent="CenterContainer/VBoxContainer" unique_id=1718618954]
+[node name="SubmitButton" type="Button" parent="CenterContainer/Panel/VBoxContainer" unique_id=1718618954]
 custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
 theme_override_font_sizes/font_size = 64
