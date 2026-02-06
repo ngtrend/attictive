@@ -19,18 +19,24 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0, 0, 0, 0.919)
+color = Color(0, 0, 0, 0.35700002)
 
 [node name="CenterContainer" type="CenterContainer" parent="." unique_id=1240750330]
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -250.0
+offset_top = -300.0
+offset_right = 250.0
+offset_bottom = 300.0
 grow_horizontal = 2
 grow_vertical = 2
 
 [node name="Panel" type="Panel" parent="CenterContainer" unique_id=1961508052]
-custom_minimum_size = Vector2(500, 750)
+custom_minimum_size = Vector2(500, 600)
 layout_mode = 2
 theme = ExtResource("2_e2h7s")
 
@@ -57,3 +63,5 @@ custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
 theme_override_font_sizes/font_size = 64
 text = "Submit"
+
+[connection signal="gui_input" from="ColorRect" to="." method="_on_color_rect_gui_input"]

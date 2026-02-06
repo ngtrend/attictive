@@ -16,12 +16,13 @@ func _ready() -> void:
 	play_button.pressed.connect(_on_play_button_pressed)
 	settings_button.pressed.connect(_on_settings_button_pressed)
 	music_button.pressed.connect(_on_music_toggle)
+	sfx_button.pressed.connect(_on_sfx_toggle)
 	edit_button.pressed.connect(_on_edit_button_toggle)
 	settings_panel.hide()
 	await get_tree().process_frame
 func _on_play_button_pressed():
 	play_button.disabled = true
-	Gamedata.switch_scene("res://gameplay.tscn")
+	Gamedata.switch_scene("res://scene/game_play.tscn")
 func _on_settings_button_pressed():
 	if !settings_panel.visible:
 		show_settings()

@@ -124,7 +124,7 @@ func set_display_name(_name: String) -> void:
 	add_child(http)
 	http.request_completed.connect(
 		func(result, response_code, _response_headers, body):
-			_on_set_name_response(result, response_code, _response_headers, body, http, name)
+			_on_set_name_response(result, response_code, _response_headers, body, http, _name)
 	)
 
 	var err = http.request(
@@ -336,6 +336,7 @@ func _on_player_rank_response(_result, response_code, _headers, body, http):
 		emit_signal("leaderboard_updated")
 	
 	http.queue_free()
+
 func is_player_in_top_3() -> bool :
 	for entry in leaderboard_data:
 		if entry["id"] == playfab_id:

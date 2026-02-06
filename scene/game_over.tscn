@@ -1,0 +1,66 @@
+[gd_scene format=3 uid="uid://b270l4dmqn7fb"]
+
+[ext_resource type="Script" uid="uid://or6jdotrwfbm" path="res://script/game_over.gd" id="1_6pabp"]
+[ext_resource type="Theme" uid="uid://cadcsrqf66x6v" path="res://assert/ui_base.tres" id="2_ooyig"]
+[ext_resource type="Texture2D" uid="uid://dk7vsa8sltqtb" path="res://assert/icon/return.png" id="3_0sgxn"]
+[ext_resource type="Texture2D" uid="uid://cp7gvjub88vxr" path="res://assert/icon/cross.png" id="4_p3ufs"]
+
+[node name="GameOver" type="Control" unique_id=926287576]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_6pabp")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1662521914]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.224)
+
+[node name="CenterContainer" type="CenterContainer" parent="." unique_id=252198729]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -43.5
+offset_top = -20.0
+offset_right = 43.5
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_ooyig")
+
+[node name="Panel" type="Panel" parent="CenterContainer" unique_id=775323512]
+custom_minimum_size = Vector2(450, 350)
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer" unique_id=211474759]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="GameOverText" type="Label" parent="CenterContainer/VBoxContainer" unique_id=384936245]
+layout_mode = 2
+text = "Game Over"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/VBoxContainer" unique_id=708599070]
+layout_mode = 2
+theme_override_constants/separation = 20
+alignment = 1
+
+[node name="Restart" type="Button" parent="CenterContainer/VBoxContainer/HBoxContainer" unique_id=1774188803]
+layout_mode = 2
+icon = ExtResource("3_0sgxn")
+
+[node name="Exit" type="Button" parent="CenterContainer/VBoxContainer/HBoxContainer" unique_id=527625785]
+layout_mode = 2
+icon = ExtResource("4_p3ufs")
+
+[connection signal="gui_input" from="ColorRect" to="." method="_on_color_rect_gui_input"]

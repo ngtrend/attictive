@@ -21,3 +21,8 @@ func close():
 	t.tween_property($CenterContainer, "scale", Vector2.ZERO, 0.2)
 	await t.finished
 	queue_free()
+
+
+func _on_color_rect_gui_input(event: InputEvent) -> void:
+	if event is InputEventMouseButton and event.pressed:
+		close()

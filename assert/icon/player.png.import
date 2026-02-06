@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://rred1856mrmm"
-path="res://.godot/imported/sfx-on.png-8a7170c9e6c6063abc42b82675a4d520.ctex"
+uid="uid://cc3hbv66oi857"
+path="res://.godot/imported/player.png-fea19001eabb8542e704b41980d4b6c3.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assert/icon/sfx-on.png"
-dest_files=["res://.godot/imported/sfx-on.png-8a7170c9e6c6063abc42b82675a4d520.ctex"]
+source_file="res://assert/icon/player.png"
+dest_files=["res://.godot/imported/player.png-fea19001eabb8542e704b41980d4b6c3.ctex"]
 
 [params]
 

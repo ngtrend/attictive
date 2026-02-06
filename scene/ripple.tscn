@@ -1,8 +1,8 @@
-[gd_scene load_steps=2 format=3 uid="uid://dq8tdmlqp2h15"]
+[gd_scene format=3 uid="uid://dq8tdmlqp2h15"]
 
 [ext_resource type="Script" uid="uid://dv3jea07aeaa8" path="res://script/ripple.gd" id="1_b3hhm"]
 
-[node name="Ripple" type="Node2D"]
+[node name="Ripple" type="Node2D" unique_id=538789341]
 script = ExtResource("1_b3hhm")
 ripple_width = 8.0
 despawn_time = 0.5

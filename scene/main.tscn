@@ -4,10 +4,10 @@
 [ext_resource type="Script" uid="uid://cxajlar7ijjwd" path="res://script/main_circle.gd" id="2_1bvp3"]
 [ext_resource type="Theme" uid="uid://cadcsrqf66x6v" path="res://assert/ui_base.tres" id="2_h2yge"]
 [ext_resource type="Texture2D" uid="uid://rkq7qq4e4ajl" path="res://assert/icon/settings.png" id="2_lquwl"]
-[ext_resource type="Texture2D" uid="uid://bqa5lrg6de1ma" path="res://assert/icon/music-on.png" id="6_5vw27"]
+[ext_resource type="Texture2D" uid="uid://ba1lk7wyu0jvb" path="res://assert/icon/music-on.png" id="6_5vw27"]
 [ext_resource type="Theme" uid="uid://d2rf1u254572j" path="res://assert/ui_control_buttons.tres" id="6_kek77"]
-[ext_resource type="Texture2D" uid="uid://ws73uais0258" path="res://assert/icon/sfx-on.png" id="7_kek77"]
-[ext_resource type="Texture2D" uid="uid://uj78frq6lhht" path="res://assert/icon/star.png" id="8_4c57u"]
+[ext_resource type="Texture2D" uid="uid://rred1856mrmm" path="res://assert/icon/sfx-on.png" id="7_kek77"]
+[ext_resource type="Texture2D" uid="uid://cc3hbv66oi857" path="res://assert/icon/player.png" id="8_kek77"]
 [ext_resource type="AudioStream" uid="uid://bg23akolp0kn6" path="res://assert/music/8-bit-loop-1.mp3" id="9_kek77"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_efxa6"]
@@ -109,7 +109,7 @@ icon_alignment = 1
 layout_mode = 2
 size_flags_vertical = 3
 theme = ExtResource("6_kek77")
-icon = ExtResource("8_4c57u")
+icon = ExtResource("8_kek77")
 icon_alignment = 1
 
 [node name="BackgroundMusic" type="AudioStreamPlayer" parent="." unique_id=1309852954]

@@ -1,11 +1,11 @@
 [gd_scene format=4 uid="uid://b5ohddlhrriqj"]
 
-[ext_resource type="Script" uid="uid://3xte83fla4k7" path="res://script/circle.gd" id="1_n4psk"]
-[ext_resource type="Script" uid="uid://bvkt4o7gduab6" path="res://script/gameplay.gd" id="1_smepj"]
-[ext_resource type="PackedScene" uid="uid://xwe1rxtelv41" path="res://name_popup.tscn" id="2_cbffv"]
-[ext_resource type="PackedScene" uid="uid://dq8tdmlqp2h15" path="res://ripple.tscn" id="2_ej4tk"]
-[ext_resource type="Script" uid="uid://cb2s5eo45vyhj" path="res://script/ladder_board.gd" id="3_oe8ih"]
-[ext_resource type="Theme" uid="uid://cadcsrqf66x6v" path="res://assert/ui_base.tres" id="3_xuee5"]
+[ext_resource type="Script" uid="uid://bvkt4o7gduab6" path="res://script/gameplay.gd" id="1_6oj6j"]
+[ext_resource type="Script" uid="uid://3xte83fla4k7" path="res://script/circle.gd" id="2_sigw1"]
+[ext_resource type="PackedScene" uid="uid://dq8tdmlqp2h15" path="res://scene/ripple.tscn" id="3_7ncin"]
+[ext_resource type="Theme" uid="uid://cadcsrqf66x6v" path="res://assert/ui_base.tres" id="4_q4qun"]
+[ext_resource type="Script" uid="uid://cb2s5eo45vyhj" path="res://script/ladder_board.gd" id="5_divkb"]
+[ext_resource type="Script" uid="uid://255qgcx515t3" path="res://script/life_circles.gd" id="6_q8hl5"]
 
 [sub_resource type="Environment" id="Environment_n4psk"]
 background_mode = 3
@@ -28,8 +28,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
-script = ExtResource("1_smepj")
-name_scene = ExtResource("2_cbffv")
+script = ExtResource("1_6oj6j")
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=1674730267]
 layout_mode = 1
@@ -63,13 +62,12 @@ color = Color(0, 0, 0, 1)
 [node name="Bubble" type="Node2D" parent="." unique_id=1542952851]
 
 [node name="Circle" type="Node2D" parent="Bubble" unique_id=1900512157]
-script = ExtResource("1_n4psk")
+script = ExtResource("2_sigw1")
 play_area = NodePath("../../MarginContainer/ColorRect")
 effects_node = NodePath("../Effects")
-ripple_scene = ExtResource("2_ej4tk")
+ripple_scene = ExtResource("3_7ncin")
 
 [node name="Effects" type="Node2D" parent="Bubble" unique_id=1459148826]
-position = Vector2(-500, -500)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=2130143509]
 environment = SubResource("Environment_n4psk")
@@ -94,8 +92,8 @@ custom_minimum_size = Vector2(0, 200)
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
-theme = ExtResource("3_xuee5")
-script = ExtResource("3_oe8ih")
+theme = ExtResource("4_q4qun")
+script = ExtResource("5_divkb")
 
 [node name="MarginContainer3" type="MarginContainer" parent="." unique_id=1955864508]
 layout_mode = 1
@@ -108,10 +106,25 @@ grow_horizontal = 0
 theme_override_constants/margin_top = 50
 theme_override_constants/margin_right = 100
 
-[node name="ScoreLabel" type="Label" parent="MarginContainer3" unique_id=1684866537]
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer3" unique_id=821617949]
 layout_mode = 2
-theme = ExtResource("3_xuee5")
+theme_override_constants/separation = 20
+alignment = 1
+
+[node name="LifeCircles" type="Control" parent="MarginContainer3/VBoxContainer" unique_id=2033300499]
+layout_mode = 2
+size_flags_vertical = 3
+script = ExtResource("6_q8hl5")
+radius = 25.0
+spacing = 15.0
+
+[node name="ScoreLabel" type="Label" parent="MarginContainer3/VBoxContainer" unique_id=1684866537]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 1
+theme = ExtResource("4_q4qun")
 text = "Score:"
+horizontal_alignment = 1
 
 [node name="BackgroundMusic" type="AudioStreamPlayer" parent="." unique_id=659222208]
 stream = SubResource("AudioStreamMP3_cbffv")
