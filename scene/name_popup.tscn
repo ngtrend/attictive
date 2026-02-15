@@ -50,6 +50,12 @@ grow_vertical = 2
 theme_override_constants/separation = 40
 alignment = 1
 
+[node name="ErrorLabel" type="Label" parent="CenterContainer/Panel/VBoxContainer" unique_id=2145125099]
+visible = false
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+horizontal_alignment = 1
+
 [node name="UserName" type="LineEdit" parent="CenterContainer/Panel/VBoxContainer" unique_id=510007815]
 custom_minimum_size = Vector2(500, 50)
 layout_mode = 2

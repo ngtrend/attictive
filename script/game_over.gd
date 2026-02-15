@@ -5,12 +5,12 @@ extends Control
 func _ready() -> void:
 	restart.pressed.connect(_on_restart_pressed)
 	exit.pressed.connect(_on_exit_pressed)
-	Gamedata.reset_game()
+	GameData.reset_game()
 func _on_restart_pressed():
-	Gamedata.switch_scene("res://scene/game_play.tscn")
+	GameData.switch_scene("res://scene/game_play.tscn")
 	close()
 func _on_exit_pressed():
-	Gamedata.switch_scene("res://scene/main.tscn")
+	GameData.switch_scene("res://scene/main.tscn")
 	close()
 func close():
 	var t = create_tween()
@@ -18,7 +18,10 @@ func close():
 	await t.finished
 	queue_free()
 
-
 func _on_color_rect_gui_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton and event.pressed:
-		print("Clicked")
+		close()
+func _notification(what: int) -> void:
+	if what == NOTIFICATION_WM_GO_BACK_REQUEST:
+		GameData.switch_scene("res://scene/main.tscn")
+		close()

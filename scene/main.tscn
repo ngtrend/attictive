@@ -8,7 +8,6 @@
 [ext_resource type="Theme" uid="uid://d2rf1u254572j" path="res://assert/ui_control_buttons.tres" id="6_kek77"]
 [ext_resource type="Texture2D" uid="uid://rred1856mrmm" path="res://assert/icon/sfx-on.png" id="7_kek77"]
 [ext_resource type="Texture2D" uid="uid://cc3hbv66oi857" path="res://assert/icon/player.png" id="8_kek77"]
-[ext_resource type="AudioStream" uid="uid://bg23akolp0kn6" path="res://assert/music/8-bit-loop-1.mp3" id="9_kek77"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_efxa6"]
 bg_color = Color(0, 0, 0, 0)
@@ -111,9 +110,3 @@ size_flags_vertical = 3
 theme = ExtResource("6_kek77")
 icon = ExtResource("8_kek77")
 icon_alignment = 1
-
-[node name="BackgroundMusic" type="AudioStreamPlayer" parent="." unique_id=1309852954]
-stream = ExtResource("9_kek77")
-volume_db = -11.5
-autoplay = true
-parameters/looping = true

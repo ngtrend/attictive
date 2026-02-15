@@ -16,16 +16,22 @@ compatibility/default_parent_skeleton_in_mesh_instance_3d=true
 
 config/name="bubbleshot"
 run/main_scene="uid://dvdoyh6fuya0l"
+config/quit_on_go_back=false
 config/features=PackedStringArray("4.6", "Mobile")
 boot_splash/show_image=false
 boot_splash/stretch_mode=0
 boot_splash/use_filter=false
 config/icon="res://icon.svg"
 
+[audio]
+
+buses/default_bus_layout=""
+
 [autoload]
 
 PlayFab="*res://script/playfab.gd"
-Gamedata="*uid://bb5tdulh68g2e"
+GameData="*uid://bb5tdulh68g2e"
+AudioFade="*uid://b4ieu1geddmpp"
 
 [display]
 

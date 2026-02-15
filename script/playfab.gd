@@ -8,8 +8,8 @@ var playfab_id := ""
 var display_name = ""
 
 var leaderboard_data: Array = []
-var pending_score := -1
-var last_submitted_score := -1
+var pending_score := 0
+var last_submitted_score := 0
 
 signal leaderboard_updated
 signal  login_completed(has_display_name : bool)

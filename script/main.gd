@@ -7,11 +7,11 @@ extends Control
 @onready var music_button: Button = $MarginContainer/VBoxContainer/SettingsPanel/Controls/MusicButton
 @onready var sfx_button: Button = $MarginContainer/VBoxContainer/SettingsPanel/Controls/SfxButton
 @onready var edit_button: Button = $MarginContainer/VBoxContainer/SettingsPanel/Controls/EditButton
-@onready var background_music: AudioStreamPlayer = $BackgroundMusic
+
 
 var settings_tween: Tween
 const SLIDE_OFFSET := 20
-
+const MENU_MUSIC := preload("res://assert/music/8-bit-loop-1.mp3")
 func _ready() -> void:
 	play_button.pressed.connect(_on_play_button_pressed)
 	settings_button.pressed.connect(_on_settings_button_pressed)
@@ -19,10 +19,12 @@ func _ready() -> void:
 	sfx_button.pressed.connect(_on_sfx_toggle)
 	edit_button.pressed.connect(_on_edit_button_toggle)
 	settings_panel.hide()
+	AudioFade.play_music(MENU_MUSIC)
 	await get_tree().process_frame
 func _on_play_button_pressed():
 	play_button.disabled = true
-	Gamedata.switch_scene("res://scene/game_play.tscn")
+	GameData.switch_scene("res://scene/game_play.tscn")
+	await get_tree().create_timer(0.8).timeout
 func _on_settings_button_pressed():
 	if !settings_panel.visible:
 		show_settings()
@@ -79,27 +81,23 @@ func hide_settings():
 		settings_panel.visible = false
 	)
 func _on_music_toggle():
-	if Gamedata.music_volume > 0:
-		Gamedata.music_volume = 0.0
-	else:
-		Gamedata.music_volume = 0.5
-	background_music.volume_db = linear_to_db(Gamedata.music_volume)
+	AudioFade.toggle_music()
 	update_music_toggle()
 func _on_sfx_toggle():
-	if Gamedata.sfx_volume > 0:
-		Gamedata.sfx_volume = 0.0
-	else:
-		Gamedata.sfx_volume = 0.5
+	GameData.sfx_volume = 0.0 if GameData.sfx_volume > 0.0 else 0.5
 	update_sfx_toggle()
 func update_music_toggle():
-	if Gamedata.music_volume > 0.0:
+	if !AudioFade.muted:
 		music_button.icon = preload("res://assert/icon/music-on.png")
 	else:
 		music_button.icon = preload("res://assert/icon/music-off.png")
 func update_sfx_toggle():
-	if Gamedata.sfx_volume > 0:
+	if GameData.sfx_volume > 0:
 		sfx_button.icon = preload("res://assert/icon/sfx-on.png")
 	else:
 		sfx_button.icon = preload("res://assert/icon/sfx-off.png")
 func _on_edit_button_toggle():
-	Gamedata.show_name_popup()
+	GameData.show_name_popup()
+func _notification(what: int) -> void:
+	if what == NOTIFICATION_WM_GO_BACK_REQUEST:
+		get_tree().quit()
